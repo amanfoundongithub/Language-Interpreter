@@ -4,7 +4,11 @@
 #define MAX_LENGTH 64
 
 typedef enum {
+
+    // End of file 
     T_EOF,
+
+    // Number (assumed to be the only constants) 
     T_NUMBER,
 
     // Arithmetic operators
@@ -14,8 +18,14 @@ typedef enum {
     T_DIVIDE, 
     T_LPAREN,
     T_RPAREN, 
+
+    // Assignment operator 
     T_ASSIGN, 
+
+    // Identifier 
     T_IDENTIFIER, 
+    
+    // Semi colon 
     T_SEMI,
 
     // Conditional operators

@@ -6,6 +6,7 @@
 #include <string.h>
 
 
+
 int skip_whitespaces(const char* src, int pos) {
     while (src[pos] && isspace(src[pos]))
     {
