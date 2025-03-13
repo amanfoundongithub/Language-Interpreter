@@ -1,23 +1,30 @@
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -Wall -Wextra -std=c99 -g
 
-# Object files
-OBJS = main.o tokenizer.o ASTMake.o
+TARGET = interpreter
 
-# Targets
-all: interpreter
+# Source files.
+SRCS = main.c ASTEvaluate.c ASTMake.c tokenizer.c
 
-interpreter: $(OBJS)
-	$(CC) $(CFLAGS) -o interpreter $(OBJS)
+# Object files.
+OBJS = main.o ASTEvaluate.o ASTMake.o tokenizer.o
 
-main.o: main.c ASTNode.h ASTMake.h tokenizer.h constants.h tokenType.h
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+main.o: main.c ASTEvaluate.h ASTMake.h ASTNode.h tokenType.h constants.h tokenizer.h
 	$(CC) $(CFLAGS) -c main.c
 
-tokenizer.o: tokenizer.c tokenizer.h constants.h tokenType.h
-	$(CC) $(CFLAGS) -c tokenizer.c
+ASTEvaluate.o: ASTEvaluate.c ASTEvaluate.h ASTNode.h tokenType.h constants.h
+	$(CC) $(CFLAGS) -c ASTEvaluate.c
 
 ASTMake.o: ASTMake.c ASTMake.h ASTNode.h
 	$(CC) $(CFLAGS) -c ASTMake.c
 
+tokenizer.o: tokenizer.c tokenizer.h constants.h tokenType.h
+	$(CC) $(CFLAGS) -c tokenizer.c
+
 clean:
-	rm -f *.o interpreter
+	rm -f $(OBJS) $(TARGET)
