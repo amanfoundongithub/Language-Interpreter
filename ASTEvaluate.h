@@ -7,7 +7,7 @@
 
 void run(ASTNode * root);
 
-// Helper: print the current environment.
-void print_env(void);
+
+void print_env();
 
 #endif
