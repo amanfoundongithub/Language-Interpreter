@@ -3,8 +3,6 @@
 
 #include "tokenType.h"
 
-#define EOF '\0'
-
 int skip_whitespaces(const char* src, int pos);
 
 TokenType check_conditional_statement(const char* s);

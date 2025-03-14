@@ -1,0 +1,4 @@
+x = 5 + 3;
+if x: y = x * 2; else: y = 0;
+while x: x = x - 1;
+for i = 0; 3 - i; i = i + 1: z = x + i;
