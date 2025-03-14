@@ -7,7 +7,6 @@
 
 void run(ASTNode * root);
 
-
 void print_env();
 
 #endif

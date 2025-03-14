@@ -52,3 +52,10 @@ void raise_unsupported_statement() {
     Error error = create_error("Unsupported statement", GREEN);
     raise_error(error);
 }
+
+void raise_out_of_memory_error() {
+    Error error = create_error("Memory exceeded. Aborted", RED);
+    raise_error(error);
+}
+
+

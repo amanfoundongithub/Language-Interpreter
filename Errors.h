@@ -19,6 +19,8 @@ typedef struct {
 
 
 void raise_too_many_variables_error();
+void raise_out_of_memory_error();
+
 void raise_node_not_provided_error();
 void raise_variable_not_defined_error();
 
@@ -26,5 +28,7 @@ void raise_zero_division_error();
 void raise_unsupported_operand();
 
 void raise_unsupported_statement();
+
+
 
 #endif 
