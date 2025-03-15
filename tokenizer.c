@@ -44,8 +44,8 @@ Token create_token(TokenType type, const char *value) {
     Token token;
     token.type = type;
     if (value)
-        strncpy(token.value, value, MAX_LENGTH - 1);
-    token.value[MAX_LENGTH - 1] = '\0';
+        strncpy(token.value, value, MAX_LENGTH_OF_WORD - 1);
+    token.value[MAX_LENGTH_OF_WORD - 1] = '\0';
     return token;
 }
 
@@ -61,14 +61,14 @@ Token get_next_token(char* src, int* pos) {
     }
 
     // Create a buffer
-    char buffer[MAX_LENGTH] = {0};
+    char buffer[MAX_LENGTH_OF_WORD] = {0};
     int buf_index = 0;
 
     char current = src[*pos];
 
     // If it is a digit
     if(isdigit(current)) {
-        while(src[*pos] && isdigit(src[*pos]) && buf_index < MAX_LENGTH - 1) {
+        while(src[*pos] && isdigit(src[*pos]) && buf_index < MAX_LENGTH_OF_WORD - 1) {
             buffer[buf_index++] = src[(*pos)++];
         }
         buffer[buf_index] = '\0';
@@ -78,7 +78,7 @@ Token get_next_token(char* src, int* pos) {
 
     // Alphabetic
     if(isalpha(current)) {
-        while(src[*pos] && isalnum(src[*pos]) && buf_index < MAX_LENGTH - 1) {
+        while(src[*pos] && isalnum(src[*pos]) && buf_index < MAX_LENGTH_OF_WORD - 1) {
             buffer[buf_index++] = src[(*pos)++];
         }
         buffer[buf_index] = '\0';
@@ -127,14 +127,8 @@ Token get_next_token(char* src, int* pos) {
         char unknown_type[2];
         unknown_type[0] = current;
         unknown_type[1] = '\0';
-
         return create_token(T_UNKNOWN, unknown_type);
-    }
-        
     
     }
-
-
-
 }
 

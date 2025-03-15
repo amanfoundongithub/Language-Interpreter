@@ -2,8 +2,7 @@
 #define INTERPRETER_H_
 
 #include "ASTNode.h"
-#include "constants.h"
-
+#include "SystemConstants.h"
 
 void run(ASTNode * root);
 

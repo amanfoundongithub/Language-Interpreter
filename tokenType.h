@@ -1,7 +1,7 @@
 #ifndef TOKEN_TYPE_H_
 #define TOKEN_TYPE_H_
 
-#define MAX_LENGTH 64
+#include "SystemConstants.h"
 
 typedef enum {
 
@@ -40,7 +40,7 @@ typedef enum {
 
 typedef struct {
     TokenType type;
-    char value[MAX_LENGTH];
+    char value[MAX_LENGTH_OF_WORD];
 } Token; 
 
 #endif

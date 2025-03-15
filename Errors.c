@@ -8,7 +8,7 @@
 /**
  * @brief Utility function to raise an error 
  * 
- * @param error 
+ * @param error the error to be raised 
  */
 void raise_error(Error error) {
     fprintf(stderr, "%sERROR : %s\n" RESET, error.severity, error.error_message);
@@ -19,7 +19,6 @@ Error create_error(const char* message, const char* severity) {
     Error error;
     strcpy(error.error_message, message);
     strcpy(error.severity, severity);
-
     return error;
 }
 
@@ -57,5 +56,4 @@ void raise_out_of_memory_error() {
     Error error = create_error("Memory exceeded. Aborted", RED);
     raise_error(error);
 }
-
 

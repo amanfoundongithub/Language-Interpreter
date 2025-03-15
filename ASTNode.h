@@ -1,7 +1,7 @@
 #ifndef AST_NODE_H_
 #define AST_NODE_H_
 
-#include "constants.h"
+#include "SystemConstants.h"
 #include "tokenType.h"
 
 typedef enum {
